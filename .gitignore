@@ -1,0 +1,8 @@
+.DS_Store
+vendor/
+node_modules/
+result/*
+!.gitkeep
+wp-content/debug.log
+wp-config.php
+docker-appengine/mysql/sql/*.sql

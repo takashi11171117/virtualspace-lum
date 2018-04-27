@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: test
+    ports:
+      - '30011:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./mysql/sql:/tmp/sql
+  php:
+    build: ./php
+    ports:
+      - '30010:80'
+    volumes:
+      - ../:/var/www/html/
+    depends_on:
+      - mysql
+volumes:
+  db:
